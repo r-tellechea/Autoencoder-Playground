@@ -68,7 +68,7 @@ class NeuralNetworkPlot:
 			showlegend=False,
 			margin=dict(l=0, r=0, t=0, b=0),
 			width=700,
-			height=550,
+			height=(550 // 8) * self.max_neurons_in_layer,
 		)
 		fig.update_xaxes(visible=False)
 		fig.update_yaxes(visible=False)
