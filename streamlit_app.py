@@ -10,7 +10,7 @@ st.set_page_config(
 )
 
 # Title
-st.title('Circumference Autoencoder')
+st.title('Autoencoder')
 
 # Seed
 seed = st.number_input(
