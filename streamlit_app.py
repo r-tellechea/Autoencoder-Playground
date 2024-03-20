@@ -52,7 +52,7 @@ with column_std:
 	)
 
 # Generate the data
-from generate_data import generate_data
+from data import generate_data
 data = generate_data(n_points, mean, std, seed)
 
 from plotly_figures import get_fig_data
