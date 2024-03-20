@@ -39,9 +39,6 @@ st.subheader('Autoencoder architecture')
 from circumference_app.B_autoencoder_configuration import autoencoder_configuration
 encoder_arch, decoder_arch, n_bottleneck_neurons = autoencoder_configuration(seed, data)
 
-# TODO: Temporal.
-st.text(f'Autoencoder architecture: {(2,) + encoder_arch + (n_bottleneck_neurons,) + decoder_arch + (2,)}')
-
 ########################################
 # Train the network
 ########################################

@@ -2,6 +2,7 @@ import torch
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
+import streamlit as st
 
 def get_fig_data(data: torch.Tensor) -> go.Figure:
 	fig_data = px.scatter(
@@ -20,6 +21,11 @@ def get_fig_data(data: torch.Tensor) -> go.Figure:
 	)
 
 	return fig_data
+
+@st.cache_resource
+def get_fig_nn(architecture: tuple[int]) -> go.Figure:
+	from neural_network_plot import NeuralNetworkPlot
+	return NeuralNetworkPlot(architecture).fig()
 
 def get_fig_loss(loss_values: list[float], epochs: int) -> go.Figure:
 	return px.line(

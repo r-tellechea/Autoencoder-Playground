@@ -1,6 +1,8 @@
 import torch
 import streamlit as st
 
+from plotly_figures import get_fig_nn
+
 def autoencoder_configuration(seed: int, data: torch.Tensor) -> tuple[tuple[float]]:
 
 	col_encoder, col_decoder, col_bottleneck = st.columns((2,2,1))
@@ -57,5 +59,9 @@ def autoencoder_configuration(seed: int, data: torch.Tensor) -> tuple[tuple[floa
 
 	encoder_arch = tuple(list_encoder_layer_size)
 	decoder_arch = tuple(list_decoder_layer_size)
+
+	autoencoder_arch = (2,) + encoder_arch + (n_bottleneck_neurons,) + decoder_arch + (2,)
+
+	st.plotly_chart(get_fig_nn(autoencoder_arch))
 
 	return encoder_arch, decoder_arch, n_bottleneck_neurons
