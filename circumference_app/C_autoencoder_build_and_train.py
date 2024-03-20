@@ -5,7 +5,7 @@ import streamlit as st
 from autoencoder import get_autoencoder
 from plotly_figures import get_fig_loss
 
-def autoencoder_build_and_train(seed: int, data: torch.Tensor, encoder_arch: tuple[float], decoder_arch: tuple[float], n_bottleneck_neurons: int) -> None:
+def autoencoder_build_and_train(seed: int, data: torch.Tensor, encoder_arch: tuple[float], decoder_arch: tuple[float], n_bottleneck_neurons: int):
 
 	# Training configuration.
 	col_epochs, col_lr, col_train_button = st.columns((4, 1, 1))
