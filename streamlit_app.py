@@ -2,6 +2,13 @@ import torch
 from torch import nn
 import streamlit as st
 
+st.set_page_config(
+	page_title='Autoencoder', 
+	page_icon='⚗️', 
+	layout='centered', 
+	initial_sidebar_state='auto'
+)
+
 # Title
 st.title('Circumference Autoencoder')
 
