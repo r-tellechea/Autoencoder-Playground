@@ -1,7 +1,4 @@
-import torch
-from torch import nn
 import streamlit as st
-
 st.set_page_config(
 	page_title='Autoencoder', 
 	page_icon='⚗️', 
@@ -9,8 +6,13 @@ st.set_page_config(
 	initial_sidebar_state='auto'
 )
 
+# Text
+from circumference_app.text import text
+
 # Title
 st.title('Autoencoder')
+
+st.markdown(text.intro)
 
 # Seed
 seed = st.number_input(
@@ -25,7 +27,9 @@ seed = st.number_input(
 # Data configuration
 ########################################
 
-st.subheader('Create the data')
+st.subheader('Crear los datos')
+
+st.markdown(text.circumference)
 
 from circumference_app.A_data_configuration import data_configuration
 data = data_configuration(seed)
@@ -34,7 +38,9 @@ data = data_configuration(seed)
 # Neural Networks Configuration
 ########################################
 
-st.subheader('Autoencoder architecture')
+st.subheader('Arquitectura del autoencoder')
+
+st.markdown(text.autoencoder_architecture)
 
 from circumference_app.B_autoencoder_configuration import autoencoder_configuration
 encoder_arch, decoder_arch, n_bottleneck_neurons = autoencoder_configuration(seed, data)
