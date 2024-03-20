@@ -57,7 +57,5 @@ network_trained, encoder, decoder, autoencoder, loss_values = autoencoder_build_
 
 st.subheader('Reconstruct the data with the autoencoder')
 
-from plotly_figures import get_fig_decoded
-if network_trained:
-	fig_data_decoded = get_fig_decoded(autoencoder, data)
-	st.plotly_chart(fig_data_decoded, use_container_width=True)
+from circumference_app.D_reconstruct_data import reconstruct_data
+reconstruct_data(data, autoencoder, network_trained)
