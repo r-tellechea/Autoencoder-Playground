@@ -1,5 +1,4 @@
 import torch
-from torch import nn
 import streamlit as st
 
 from data import generate_data

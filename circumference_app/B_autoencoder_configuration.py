@@ -1,5 +1,4 @@
 import torch
-from torch import nn
 import streamlit as st
 
 def autoencoder_configuration(seed: int, data: torch.Tensor) -> tuple[tuple[float]]:

@@ -1,5 +1,4 @@
 import torch
-from torch import nn
 import streamlit as st
 
 from autoencoder import get_autoencoder
