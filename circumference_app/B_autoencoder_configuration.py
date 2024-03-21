@@ -1,5 +1,6 @@
 import torch
 import streamlit as st
+from streamlit_pills import pills 
 
 from plotly_figures import get_fig_nn
 
@@ -28,11 +29,13 @@ def autoencoder_configuration(seed: int, data: torch.Tensor) -> tuple[tuple[floa
 			)
 
 	with col_bottleneck:
-		n_bottleneck_neurons = st.radio(
+		bottleneck_neurons = pills(
 			label='Bottleneck neurons',
 			key='bottleneck_neurons',
-			options=[1,2],
+			options=['1 neuron', '2 neurons'],
+			icons=['💧', '🌊']
 		)
+		n_bottleneck_neurons = 1 if bottleneck_neurons == '1 neuron' else 2
 
 	list_encoder_layer_size = [1] * n_encoder_hidden_layers
 	list_decoder_layer_size = [1] * n_decoder_hidden_layers
