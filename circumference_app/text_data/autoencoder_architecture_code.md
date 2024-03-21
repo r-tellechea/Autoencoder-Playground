@@ -1,0 +1,1 @@
+Esta arquitectura la podemos implementar en `torch` mediante el siguiente código:
