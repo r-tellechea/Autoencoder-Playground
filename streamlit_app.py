@@ -40,15 +40,18 @@ data = data_configuration(seed)
 
 st.subheader('Arquitectura del autoencoder')
 
-st.markdown(text.autoencoder_architecture)
-
 from circumference_app.B_autoencoder_configuration import autoencoder_configuration
-encoder_arch, decoder_arch, n_bottleneck_neurons = autoencoder_configuration(seed, data)
+from get_arch_code import get_code
 
+st.markdown(text.autoencoder_architecture)
+encoder_arch, decoder_arch, n_bottleneck_neurons = autoencoder_configuration(seed, data)
 st.markdown(text.autoencoder_architecture_code)
-# TODO: Cambiar este código dinámicamente.
-with open('temporal_autoencoder_code.py') as filestream:
-	st.code(filestream.read().replace('\t', '    '), language='python')
+st.code(
+	body=get_code(
+		encoder_arch=( (2, ) + encoder_arch + (n_bottleneck_neurons,) ), 
+		decoder_arch=( (n_bottleneck_neurons, ) + decoder_arch + (2,) )),
+	language='python'
+)
 
 ########################################
 # Train the network
