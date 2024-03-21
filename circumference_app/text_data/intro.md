@@ -1,4 +1,4 @@
-En esta aplicación queremos explicar de un modo interactivo la arquitectura del autoencoder a través de su aplicación a un caso práctico: la reducción de la dimensión. 
+En esta aplicación queremos explicar de un modo interactivo la arquitectura del autoencoder y su uso: la reducción de dimensión.
 
 Tomaremos como punto de partida una nube de puntos que se adecúan más o menos a una circunferencia en un espacio de dos dimensiones. Trataremos de proyectar estos datos sobre otro espacio de una dimensión de manera que podamos reconstruir la muestra original desde su proyección en este espacio reducido. La operación de reducción la llamaremos `encoder`, a la de reconstrucción `decoder`, y a la composición de ambas `autoencoder`.
 
