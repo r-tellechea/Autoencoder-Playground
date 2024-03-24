@@ -28,7 +28,7 @@ def get_arch_code(arch: tuple[int], variable_name: str) -> str:
 
 	return str_arch_code
 
-def get_code(encoder_arch: tuple[int], decoder_arch: tuple[int]) -> str:
+def get_code_autoencoder(encoder_arch: tuple[int], decoder_arch: tuple[int]) -> str:
 	return (
 		'import torch\nfrom torch import nn\n\n' +
 		get_arch_code(encoder_arch, 'encoder') + '\n' +
