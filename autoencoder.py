@@ -3,7 +3,24 @@ import torch
 from torch import nn
 from functools import reduce
 
+from get_generator_from_seed import get_generator_from_seed
+
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+def init_weights(layer: nn.Module, gen: torch.Generator=None):
+	if isinstance(layer, nn.Linear):
+		layer.weight = nn.init.normal_(
+			tensor=layer.weight,
+			mean=0.0,
+			std=0.35,
+			generator=gen
+		)
+		layer.bias.data = nn.init.normal_(
+			tensor = layer.bias.data,
+			mean=0.0,
+			std=0.25,
+			generator=gen
+		)
 
 def autoencoder_train(
 	autoencoder: nn.Module, 
@@ -40,7 +57,8 @@ def get_autoencoder(
 	data: torch.Tensor, 
 	epochs: int=500, 
 	lr: float=0.01,
-	progress_bar: st.delta_generator.DeltaGenerator=None ):
+	progress_bar: st.delta_generator.DeltaGenerator=None,
+	seed: int=31415 ):
 
 	encoder_in_out_pairs = zip((2,) + encoder_arch, encoder_arch + (n_bottleneck_neurons,))
 	decoder_in_out_pairs = zip((n_bottleneck_neurons,) + decoder_arch, decoder_arch + (2,))
@@ -58,6 +76,11 @@ def get_autoencoder(
 	
 	encoder = nn.Sequential(*encoder_args)
 	decoder = nn.Sequential(*decoder_args)
+
+	gen = get_generator_from_seed(seed)
+	encoder.apply(lambda layer : init_weights(layer, gen))
+	decoder.apply(lambda layer : init_weights(layer, gen))
+
 	autoencoder = nn.Sequential(encoder, decoder)
 
 	loss_values = autoencoder_train(autoencoder, data, epochs, lr, progress_bar)

@@ -54,6 +54,7 @@ def autoencoder_build_and_train(seed: int, data: torch.Tensor, encoder_arch: tup
 					epochs,
 					lr,
 					progress_bar,
+					seed
 				)
 		st.toast('Autoencoder trained!')
 		status_info_placeholder.success('Autoencoder trained!', icon='✅')
