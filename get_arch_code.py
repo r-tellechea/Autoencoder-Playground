@@ -2,7 +2,7 @@
 from functools import reduce
 
 str_arch = '{} = nn.Sequential(\n{}\n)\n'
-str_linear_layer = '    nn.Linear({}, {}),'
+str_linear_layer = '    nn.Linear({}, {}, bias=True),'
 str_relu_activation = ' nn.ReLU(),\n'
 
 def get_arch_code(arch: tuple[int], variable_name: str) -> str:

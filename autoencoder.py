@@ -47,12 +47,12 @@ def get_autoencoder(
 
 	encoder_args = reduce(
 		lambda tuple_x, tuple_y : tuple_x + (nn.ReLU(),) + tuple_y,
-		[(nn.Linear(input_features, output_features, device=device),)
+		[(nn.Linear(input_features, output_features, bias=True, device=device),)
 			for input_features, output_features in encoder_in_out_pairs]
 	)
 	decoder_args = reduce(
 		lambda tuple_x, tuple_y : tuple_x + (nn.ReLU(),) + tuple_y,
-		[(nn.Linear(input_features, output_features, device=device),)
+		[(nn.Linear(input_features, output_features, bias=True, device=device),)
 			for input_features, output_features in decoder_in_out_pairs]
 	)
 	
