@@ -3,6 +3,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 import streamlit as st
+import numpy as np
 
 def get_fig_data(data: torch.Tensor) -> go.Figure:
 	fig_data = px.scatter(
@@ -63,4 +64,3 @@ def get_fig_decoded(autoencoder: torch.nn.Module, data: torch.Tensor) -> go.Figu
 	)
 
 	return fig_data_decoded
-
