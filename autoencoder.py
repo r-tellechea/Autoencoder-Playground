@@ -21,7 +21,8 @@ def autoencoder_train(
 	loss_values = []
 	
 	for epoch in range(epochs):
-		progress_bar.progress(value=(epoch+1)/epochs, text=f'Training epoch {epoch+1}.')
+		if progress_bar != None:
+			progress_bar.progress(value=(epoch+1)/epochs, text=f'Training epoch {epoch+1}.')
 		autoencoder.train()
 		data_pred = autoencoder(data)
 		loss = loss_fn(data, data_pred)
