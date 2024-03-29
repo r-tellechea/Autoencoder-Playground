@@ -4,7 +4,7 @@ from streamlit_pills import pills
 
 from plotly_figures import get_fig_nn
 
-def autoencoder_configuration(seed: int, data: torch.Tensor) -> tuple[tuple[float]]:
+def autoencoder_configuration(seed: int, data: torch.Tensor) -> tuple[tuple[int] | int]:
 
 	col_encoder, col_decoder, col_bottleneck = st.columns((2,2,1))
 
