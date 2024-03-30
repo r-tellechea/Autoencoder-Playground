@@ -26,6 +26,7 @@ def reconstruct_data(data: torch.Tensor):
 			)
 			st.plotly_chart(fig_data_decoded_colors, use_container_width=True)
 		with tab_scatter:
+			# TODO: ¿Qué pasa aquí si hay dos neuronas en el bottleneck?
 			color_column = pills(
 				label='Color by',
 				options=['Theta', 'Encoded', 'No color'],
