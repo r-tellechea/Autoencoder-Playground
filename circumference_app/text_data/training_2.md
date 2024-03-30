@@ -1,0 +1,1 @@
+Una vez configurado todo, podemos proceder al entrenamiento pulsando el botón:

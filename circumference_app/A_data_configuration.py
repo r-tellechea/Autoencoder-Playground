@@ -4,6 +4,8 @@ import streamlit as st
 from data import generate_data
 from plotly_figures import get_fig_data
 
+from circumference_app.text import text
+
 def data_configuration(seed: int) -> torch.Tensor:
 
 	column_n_points, column_mean, column_std = st.columns(3)
@@ -39,6 +41,7 @@ def data_configuration(seed: int) -> torch.Tensor:
 
 	data = generate_data(n_points, mean, std, seed)
 
+	st.markdown(text.circumference_2)
 	fig_data = get_fig_data(data)
 	st.plotly_chart(fig_data, use_container_width=True)
 

@@ -7,9 +7,9 @@ y = r \cdot \textnormal{sin}(\theta) \\
 \end{cases}
 $$
 
-Queremos elaborar una muestra de $N$ puntos. Siguiendo estas ecuaciones, bastaría con generar aleatoriamente $N$ valores de $\theta$ para tener $N$ puntos de esta circunferencia. Sin embargo, para añadir un poco de incertidumbre al problema vamos a permitir que el radio $r$ de cada punto en la circunferencia sea otra variable aleatoria con un pequeño margen de desviación.
+Queremos elaborar una muestra de $N$ puntos. Siguiendo estas ecuaciones, bastaría con generar aleatoriamente $N$ valores de $\theta$ de manera uniforme para tener $N$ puntos de esta circunferencia. Sin embargo, para añadir un poco de incertidumbre al problema vamos a permitir que el radio $r$ de cada punto en la circunferencia sea otra variable aleatoria con un pequeño margen de desviación.
 
-Así pues, nuestra variables aleatorias de partida siguen las distribuciones
+Así pues, nuestras variables aleatorias de partida siguen las distribuciones
 
 $$
 \begin{cases}

@@ -1,1 +1,1 @@
-Investigando la reducción de la dimensión podemos contrastar el ángulo $\theta$ de un punto con el valor que el `encoder` está asignando a ese mismo punto.
+En cuanto a la reducción de la dimensión, podemos contrastar el ángulo $\theta$ de un punto con el valor que el `encoder` está asignando a ese mismo punto.

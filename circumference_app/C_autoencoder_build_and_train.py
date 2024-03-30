@@ -4,6 +4,8 @@ import streamlit as st
 from autoencoder import get_autoencoder
 from plotly_figures import get_fig_loss
 
+from circumference_app.text import text
+
 def autoencoder_build_and_train(seed: int, data: torch.Tensor, encoder_arch: tuple[int], decoder_arch: tuple[int], n_bottleneck_neurons: int):
 
 	# Training configuration.
@@ -27,8 +29,8 @@ def autoencoder_build_and_train(seed: int, data: torch.Tensor, encoder_arch: tup
 			index=1
 		)
 
-
-	col_status_info, col_train_button = st.columns((4, 1))
+	st.markdown(text.training_2)
+	col_train_button, col_status_info = st.columns((1, 7.5))
 
 	with col_status_info:
 		status_info_placeholder = st.empty()
