@@ -28,6 +28,5 @@ def reconstruct_data(data: torch.Tensor, autoencoder: nn.Module, encoder: nn.Mod
 				index=1,
 				key='color scatter pills'
 			)
-			a = pills('a', ['a', 'b', 'c'])
 			fig_theta_vs_encoded = get_fig_theta_vs_encoded(encoder, data, color_column)
 			st.plotly_chart(fig_theta_vs_encoded, use_container_width=True)
