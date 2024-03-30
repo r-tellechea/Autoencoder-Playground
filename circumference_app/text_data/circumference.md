@@ -1,4 +1,4 @@
-Los puntos que vamos a tomar en $\mathbb{R}^2$ tienen como referencia una circunferencia de centro $(0,0)$ y radio $r$. Cada punto de la circunferencia está determinado por un ángulo $\theta \in [0, 2\pi)$ siguiendo la fórmula
+Los puntos que vamos a tomar en $\mathbb{R}^2$ tienen como referencia una circunferencia de centro $(0,0)$ y radio $r$. Cada punto de la circunferencia está determinado por un ángulo $\theta \in [0, 2\pi)$ siguiendo las fórmulas:
 
 $$
 \begin{cases}

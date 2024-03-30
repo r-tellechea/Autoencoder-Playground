@@ -9,7 +9,7 @@ Nuestra intención es que $\textnormal{autoencoder} = \textnormal{decoder} \circ
 
 Vamos a construir estas funciones como redes neuronales cuyas características van a ser las siguientes:
 - Como partimos de datos en dos dimensiones, y queremos obtener como resultado esos mismos datos, tanto la entrada como la salida serán capas con dos neuronas.
-- Entre medias buscamos forzar una reducción de la dimensionalidad obligando a todo el flujo de la red a pasar por una capa con una sola neurona, es decir, a pasar por una dimensión. A esta capa la llamaremos el _cuello de botella_ de la red neuronal.
+- Entre medias buscamos forzar una reducción de la dimensión obligando a todo el flujo de la red a pasar por una capa con una sola neurona, es decir, a pasar por una dimensión. A esta capa la llamaremos el _cuello de botella_ de la red neuronal.
 - Las capas que van del _input_ al cuello de botella formarán el `encoder`, y las que van del cuello de botella al _output_ formarán el `decoder`.
 
 Tanto el `encoder` como el `decoder` tendrán de cero a cuatro capas internas, cada una de ellas con entre una y ocho neuronas. Todo eso se puede configurar con los siguientes controles.

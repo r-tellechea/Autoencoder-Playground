@@ -70,7 +70,7 @@ network_trained, encoder, decoder, autoencoder, loss_values = autoencoder_build_
 # Autoencoded data
 ########################################
 
-st.subheader('Reconstruct the data with the autoencoder')
+st.subheader('Reconstruir los datos con el autoencoder')
 
 from circumference_app.D_reconstruct_data import reconstruct_data
-reconstruct_data(data, autoencoder, network_trained)
+reconstruct_data(data, autoencoder, encoder, network_trained)
