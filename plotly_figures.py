@@ -5,6 +5,8 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 
+from neural_network_plot import NeuralNetworkPlot, update_nn_fig_hoverlabel
+
 color_theme_plot_1 = '#2196f3'
 color_theme_plot_2 = '#ff8484'
 color_theme = '#5e60ce'
@@ -32,9 +34,12 @@ def get_fig_data(data: torch.Tensor) -> go.Figure:
 	return fig_data
 
 @st.cache_resource
-def get_fig_nn(architecture: tuple[int]) -> go.Figure:
-	from neural_network_plot import NeuralNetworkPlot
-	return NeuralNetworkPlot(architecture).fig()
+def get_fig_nn(encoder_arch: tuple[int], decoder_arch: tuple[int], n_bottleneck_neurons: int) -> go.Figure:
+	architecture = (2,) + encoder_arch + (n_bottleneck_neurons,) + decoder_arch + (2,)
+	fig = NeuralNetworkPlot(architecture).fig()
+	fig = update_nn_fig_hoverlabel(fig, encoder_arch, decoder_arch, n_bottleneck_neurons)
+	return fig
+
 
 def get_fig_loss(loss_values: list[float], epochs: int) -> go.Figure:
 	return px.line(

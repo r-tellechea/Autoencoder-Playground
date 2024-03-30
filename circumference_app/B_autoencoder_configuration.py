@@ -65,6 +65,6 @@ def autoencoder_configuration(seed: int, data: torch.Tensor) -> tuple[tuple[int]
 
 	autoencoder_arch = (2,) + encoder_arch + (n_bottleneck_neurons,) + decoder_arch + (2,)
 
-	st.plotly_chart(get_fig_nn(autoencoder_arch))
+	st.plotly_chart(get_fig_nn(encoder_arch, decoder_arch, n_bottleneck_neurons))
 
 	return encoder_arch, decoder_arch, n_bottleneck_neurons

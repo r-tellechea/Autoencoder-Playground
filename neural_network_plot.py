@@ -4,9 +4,8 @@ import plotly.graph_objects as go
 from functools import reduce
 
 color = '30, 144, 255'
-color = '94, 96, 206'
-color = '34, 108, 224'
 color = '33, 150, 243'
+color_theme_plot = '#2196f3'
 
 class NeuralNetworkPlot:
 	def __init__(self, 
@@ -77,3 +76,37 @@ class NeuralNetworkPlot:
 		fig.update_yaxes(visible=False)
 
 		return fig
+
+def update_nn_fig_hoverlabel(
+	fig: go.Figure, 
+	encoder_arch: tuple[int], 
+	decoder_arch: tuple[int], 
+	n_bottleneck_neurons: int ) -> go.Figure:
+	
+	list_labels = (
+		  ['Input Y', 'Input X'] 
+		+ ['Neuron'] * sum(encoder_arch)
+		+ (['Bottleneck'] if n_bottleneck_neurons == 1 else ['Bottleneck 2', 'Bottleneck 1'])
+		+ ['Neuron'] * sum(decoder_arch)
+		+ ['Output Y', 'Output X']
+	)
+
+	fig.update_traces(
+		patch={'hoverinfo' : 'skip'},
+		selector=lambda trace : trace != 'trace 0'
+	)
+
+	fig.data[0].update({
+		'hoverinfo' : 'text',
+		'hovertext' : list_labels
+	})
+
+	fig.update_layout(
+		hoverlabel=dict(
+			bgcolor=color_theme_plot,
+			bordercolor=color_theme_plot,
+			font_size=16,
+		),
+	)
+
+	return fig
