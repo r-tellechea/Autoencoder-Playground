@@ -9,7 +9,9 @@ st.set_page_config(
 # Text
 from circumference_app.text import text
 
-# Title
+########################################
+# Intro
+########################################
 st.title('Autoencoder')
 
 st.markdown(text.intro)
