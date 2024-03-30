@@ -37,8 +37,6 @@ def autoencoder_build_and_train(seed: int, data: torch.Tensor, encoder_arch: tup
 	with col_train_button:
 		train_button = st.button(label='TRAIN!', key='train_button')
 
-	network_trained = False
-
 	# Create and train the neural networks.
 	loss_plot_placeholder = st.empty()
 
@@ -58,11 +56,17 @@ def autoencoder_build_and_train(seed: int, data: torch.Tensor, encoder_arch: tup
 				)
 		st.toast('Autoencoder trained!')
 		status_info_placeholder.success('Autoencoder trained!', icon='✅')
-		fig_loss = get_fig_loss(loss_values, epochs)
-		loss_plot_placeholder.plotly_chart(fig_loss, use_container_width=True)
-		network_trained = True
 
-	if network_trained:
-		return network_trained, encoder, decoder, autoencoder, loss_values
-	else:
-		return network_trained, None, None, None, None
+		st.session_state.train_info.trained = True
+		st.session_state.train_info.encoder = encoder
+		st.session_state.train_info.decoder = decoder
+		st.session_state.train_info.autoencoder = autoencoder
+		st.session_state.train_info.loss_values = loss_values
+		st.session_state.train_info.epochs = epochs
+		
+	if st.session_state.train_info.trained:
+		fig_loss = get_fig_loss(
+			st.session_state.train_info.loss_values, 
+			st.session_state.train_info.epochs
+		)
+		loss_plot_placeholder.plotly_chart(fig_loss, use_container_width=True)

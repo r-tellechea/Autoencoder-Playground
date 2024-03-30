@@ -9,6 +9,11 @@ st.set_page_config(
 # Text
 from circumference_app.text import text
 
+# Train info
+from train_info import TrainInfo
+if not 'train_info' in st.session_state:
+	st.session_state['train_info'] = TrainInfo()
+
 ########################################
 # Intro
 ########################################
@@ -20,9 +25,9 @@ st.markdown(text.intro)
 seed = st.number_input(
 	label='Set the manual seed:', 
 	key='seed', 
-	value=31415, 
+	value=3141592, 
 	min_value=0, 
-	max_value=1_000_000
+	max_value=1_000_000_000
 )
 
 ########################################
@@ -66,7 +71,7 @@ st.markdown(text.training)
 st.code(text.train_code, language='python')
 
 from circumference_app.C_autoencoder_build_and_train import autoencoder_build_and_train
-network_trained, encoder, decoder, autoencoder, loss_values = autoencoder_build_and_train(seed, data, encoder_arch, decoder_arch, n_bottleneck_neurons)
+autoencoder_build_and_train(seed, data, encoder_arch, decoder_arch, n_bottleneck_neurons)
 
 ########################################
 # Autoencoded data
@@ -75,4 +80,4 @@ network_trained, encoder, decoder, autoencoder, loss_values = autoencoder_build_
 st.subheader('Reconstruir los datos con el autoencoder')
 
 from circumference_app.D_reconstruct_data import reconstruct_data
-reconstruct_data(data, autoencoder, encoder, network_trained)
+reconstruct_data(data)
