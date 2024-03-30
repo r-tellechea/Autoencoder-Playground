@@ -4,6 +4,9 @@ import plotly.graph_objects as go
 from functools import reduce
 
 color = '30, 144, 255'
+color = '94, 96, 206'
+color = '34, 108, 224'
+color = '33, 150, 243'
 
 class NeuralNetworkPlot:
 	def __init__(self, 

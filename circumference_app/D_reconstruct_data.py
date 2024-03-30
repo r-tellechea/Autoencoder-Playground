@@ -30,7 +30,7 @@ def reconstruct_data(data: torch.Tensor):
 			color_column = pills(
 				label='Color by',
 				options=['Theta', 'Encoded', 'No color'],
-				index=1,
+				index=0,
 				key='color scatter pills'
 			)
 			fig_theta_vs_encoded = get_fig_theta_vs_encoded(
