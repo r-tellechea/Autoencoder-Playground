@@ -9,7 +9,7 @@ from neural_network_plot import NeuralNetworkPlot, update_nn_fig_hoverlabel
 
 color_theme_plot_1 = '#2196f3'
 color_theme_plot_2 = '#ff8484'
-color_theme = '#5e60ce'
+color_theme = '#2196f3'
 
 def angle_from_x_y(x: np.array, y: np.array) -> np.array:
 	return np.pi + 2 * np.arctan(-y / (-x + (x**2 + y**2)**0.5))
